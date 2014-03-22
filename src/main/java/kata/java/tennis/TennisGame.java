@@ -14,10 +14,12 @@ public class TennisGame {
 	}
 
 	public String getScore() {
-		if (this.playerAScore > 0 && this.playerBScore > 0)
+		if (this.playerAScore == this.playerBScore) {
+			if (this.playerAScore == 0)
+				return "Love all";
 			return "Fifteen all";
-		if (this.playerAScore > 0)
+		} else {
 			return "Fifteen Love";
-		return "Love all";
+		}
 	}
 }
