@@ -30,7 +30,7 @@ public class KataTennisTest {
 	}
 
 	@Test
-	public void playerAWinSecondBallShouldReturnThirtyLove() throws Exception {
+	public void playerAWinTwoBallShouldReturnThirtyLove() throws Exception {
         tennisGame.playerScore(30, 0);
 		String score = tennisGame.getScore();
 		assertEquals("Thirty Love", score);
