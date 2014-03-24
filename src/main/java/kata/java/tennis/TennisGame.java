@@ -2,8 +2,8 @@ package kata.java.tennis;
 
 public class TennisGame {
 
-	int playerAScore = 0;
-	int playerBScore = 0;
+	private int playerAScore = 0;
+	private int playerBScore = 0;
 
 	public TennisGame(String playerA, String playerB) {
 	}
@@ -14,12 +14,11 @@ public class TennisGame {
 	}
 
 	public String getScore() {
-		if (this.playerAScore == this.playerBScore) {
-			if (this.playerAScore == 0)
-				return "Love all";
+		if (this.playerAScore == 0 && this.playerBScore == 0)
+			return "Love all";
+		else if (this.playerAScore == 15 && this.playerBScore == 15)
 			return "Fifteen all";
-		} else {
-			return "Fifteen Love";
-		}
+		return "Fifteen Love";
 	}
+
 }
