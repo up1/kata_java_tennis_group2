@@ -18,8 +18,10 @@ public class TennisGame {
 			if (this.playerAScore == 0)
 				return "Love all";
 			return "Fifteen all";
-		} else {
+		} else if (this.playerAScore == 15 && this.playerBScore == 0) {
 			return "Fifteen Love";
+		} else {
+			return "Love Fifteen";
 		}
 	}
 }
