@@ -12,7 +12,7 @@ public class TennisGame {
 		{
 		    put(0, "Love");
 		    put(15, "Fifteen");
-	    	put(30, "Thirty");
+		    put(30, "Thirty");
 		}
 	};
 
