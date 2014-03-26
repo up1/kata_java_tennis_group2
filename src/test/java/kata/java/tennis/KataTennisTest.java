@@ -49,4 +49,11 @@ public class KataTennisTest {
 		String score = tennisGame.getScore();
 		assertEquals("Forty Love", score);
 	}
+
+  @Test
+  public void playerAWinFirstFourBallShouldReturnWinForPlayerA() throws Exception{
+    tennisGame.playerScore(60,0);
+    String score = tennisGame.getScore();
+    assertEquals("Win For Player A",score);
+  }
 }
