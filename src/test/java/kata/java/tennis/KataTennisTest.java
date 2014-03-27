@@ -52,7 +52,7 @@ public class KataTennisTest {
 
   @Test
   public void playerAWinFirstFourBallShouldReturnWinForPlayerA() throws Exception{
-    tennisGame.playerScore(60,0);
+    tennisGame.playerScore(50,0);
     String score = tennisGame.getScore();
     assertEquals("Win For Player A",score);
   }
