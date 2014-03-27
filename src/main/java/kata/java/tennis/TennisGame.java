@@ -5,6 +5,9 @@ import java.util.HashMap;
 
 public class TennisGame {
 
+    String playerA;
+    String playerB;
+
     int playerAScore = 0;
     int playerBScore = 0;
 
@@ -20,6 +23,8 @@ public class TennisGame {
     };
 
     public TennisGame(String playerA, String playerB) {
+        this.playerA = playerA;
+        this.playerB = playerB;
     }
 
     public void playerScore(int playerAScore, int playerBScore) {
@@ -31,9 +36,9 @@ public class TennisGame {
         String scoreString = scoreMapping.get(playerAScore) + " ";
         
         if (this.playerAScore == 50) {
-            scoreString = "Win For Player A";
+            scoreString = "Win For " + playerA;
         } else if (this.playerBScore == 50) {
-            scoreString = "Win For Player B";
+            scoreString = "Win For " + playerB;
         } else if (this.playerAScore == this.playerBScore) {
             if (this.playerAScore == 40) {
                 scoreString = "Deuce";
