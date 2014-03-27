@@ -27,15 +27,19 @@ public class TennisGame {
     }
 
     public String getScore() {
+        String scoreString = scoreMapping.get(playerAScore) + " ";
+        
         if (this.playerAScore == 50) {
-            return String.format("%s For Player A", scoreMapping.get(playerAScore));
+            scoreString += "For Player A";
         } else if (this.playerAScore == this.playerBScore) {
             if (this.playerAScore == 40) {
-                return "Deuce";
+                scoreString = "Deuce";
+            } else {
+                scoreString += "all";
             }
-            return scoreMapping.get(playerAScore) + " all";
         } else {
-            return scoreMapping.get(playerAScore) + " " + scoreMapping.get(playerBScore);
+            scoreString += scoreMapping.get(playerBScore);
         }
+        return scoreString;
     }
 }
