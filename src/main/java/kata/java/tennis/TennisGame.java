@@ -18,7 +18,6 @@ public class TennisGame {
             put(15, "Fifteen");
             put(30, "Thirty");
             put(40, "Forty");
-            put(50, "Win");
         }
     };
 
@@ -33,20 +32,21 @@ public class TennisGame {
     }
 
     public String getScore() {
-        String scoreString = scoreMapping.get(playerAScore) + " ";
-        
+        String scoreString = "";
+
         if (isGameOver()) {
             scoreString = "Win For " + getTheWinner();
-        } else if (this.playerAScore == this.playerBScore) {
-            if (this.playerAScore == 40) {
-                scoreString = "Deuce";
-            } else {
-                scoreString += "all";
-            }
+        } else if (playerAScore == playerBScore && playerAScore == 40) {
+            scoreString = "Deuce";
         } else {
-            scoreString += scoreMapping.get(playerBScore);
+            scoreString = getTextScore(playerAScore) + " ";
+            scoreString += (playerAScore == playerBScore) ? "all" : getTextScore(playerBScore);
         }
         return scoreString;
+    }
+
+    private String getTextScore (int playerScore) {
+        return scoreMapping.get(playerScore);
     }
 
     private boolean isGameOver() {
