@@ -5,6 +5,9 @@ import java.util.HashMap;
 
 public class TennisGame {
 
+    String playerA;
+    String playerB;
+
     int playerAScore = 0;
     int playerBScore = 0;
 
@@ -15,11 +18,12 @@ public class TennisGame {
             put(15, "Fifteen");
             put(30, "Thirty");
             put(40, "Forty");
-            put(50, "Win");
         }
     };
 
     public TennisGame(String playerA, String playerB) {
+        this.playerA = playerA;
+        this.playerB = playerB;
     }
 
     public void playerScore(int playerAScore, int playerBScore) {
@@ -28,15 +32,28 @@ public class TennisGame {
     }
 
     public String getScore() {
-        if (this.playerAScore == 50) {
-            return String.format("%s For Player A", scoreMapping.get(playerAScore));
-        } else if (this.playerAScore == this.playerBScore) {
-        		if( this.playerAScore == 40 ) {
-        			return "Deuce";
-        		}
-            return scoreMapping.get(playerAScore) + " all";
+        String scoreString = "";
+
+        if (isGameOver()) {
+            scoreString = "Win For " + getTheWinner();
+        } else if (playerAScore == playerBScore && playerAScore == 40) {
+            scoreString = "Deuce";
         } else {
-            return scoreMapping.get(playerAScore) + " " + scoreMapping.get(playerBScore);
+            scoreString = getTextScore(playerAScore) + " ";
+            scoreString += (playerAScore == playerBScore) ? "all" : getTextScore(playerBScore);
         }
+        return scoreString;
+    }
+
+    private String getTextScore (int playerScore) {
+        return scoreMapping.get(playerScore);
+    }
+
+    private boolean isGameOver() {
+        return playerAScore == 50 || playerBScore == 50;
+    }
+
+    private String getTheWinner() {
+        return (playerAScore > playerBScore) ? playerA : playerB;
     }
 }
