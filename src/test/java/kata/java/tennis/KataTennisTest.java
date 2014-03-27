@@ -61,6 +61,6 @@ public class KataTennisTest {
 	public void bothPlayerDrawWithFortyShouldReturnDuce() throws Exception {
 		tennisGame.playerScore(40, 40);
 		String score = tennisGame.getScore();
-		assertEquals("Duce", score);
+		assertEquals("Deuce", score);
 	}
 }
