@@ -31,7 +31,9 @@ public class TennisGame {
         String scoreString = scoreMapping.get(playerAScore) + " ";
         
         if (this.playerAScore == 50) {
-            scoreString += "For Player A";
+            scoreString = "Win For Player A";
+        } else if (this.playerBScore == 50) {
+            scoreString = "Win For Player B";
         } else if (this.playerAScore == this.playerBScore) {
             if (this.playerAScore == 40) {
                 scoreString = "Deuce";
