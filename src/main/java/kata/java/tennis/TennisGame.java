@@ -30,6 +30,9 @@ public class TennisGame {
         if (this.playerAScore == 50) {
             return String.format("%s For Player A", scoreMapping.get(playerAScore));
         } else if (this.playerAScore == this.playerBScore) {
+            if (this.playerAScore == 40) {
+                return "Deuce";
+            }
             return scoreMapping.get(playerAScore) + " all";
         } else {
             return scoreMapping.get(playerAScore) + " " + scoreMapping.get(playerBScore);
