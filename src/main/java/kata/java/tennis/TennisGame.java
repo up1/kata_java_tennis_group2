@@ -35,10 +35,8 @@ public class TennisGame {
     public String getScore() {
         String scoreString = scoreMapping.get(playerAScore) + " ";
         
-        if (this.playerAScore == 50) {
-            scoreString = "Win For " + playerA;
-        } else if (this.playerBScore == 50) {
-            scoreString = "Win For " + playerB;
+        if (isGameOver()) {
+            scoreString = "Win For " + getTheWinner();
         } else if (this.playerAScore == this.playerBScore) {
             if (this.playerAScore == 40) {
                 scoreString = "Deuce";
@@ -49,5 +47,13 @@ public class TennisGame {
             scoreString += scoreMapping.get(playerBScore);
         }
         return scoreString;
+    }
+
+    private boolean isGameOver() {
+        return playerAScore == 50 || playerBScore == 50;
+    }
+
+    private String getTheWinner() {
+        return (playerAScore > playerBScore) ? playerA : playerB;
     }
 }
