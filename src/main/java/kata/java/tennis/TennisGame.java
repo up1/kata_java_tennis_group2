@@ -8,7 +8,8 @@ public class TennisGame {
     int playerAScore = 0;
     int playerBScore = 0;
 
-    Map<Integer, String> scoreMapping = new HashMap() {
+    @SuppressWarnings("serial")
+	Map<Integer, String> scoreMapping = new HashMap<Integer, String>() {
         {
             put(0, "Love");
             put(15, "Fifteen");
