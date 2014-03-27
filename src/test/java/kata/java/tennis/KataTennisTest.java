@@ -50,17 +50,24 @@ public class KataTennisTest {
 		assertEquals("Forty Love", score);
 	}
 
-    @Test
-    public void playerAWinFirstFourBallShouldReturnWinForPlayerA() throws Exception{
-        tennisGame.playerScore(50,0);
-        String score = tennisGame.getScore();
-        assertEquals("Win For Player A",score);
-    }
+	@Test
+	public void playerAWinFirstFourBallShouldReturnWinForPlayerA() throws Exception {
+		tennisGame.playerScore(50, 0);
+		String score = tennisGame.getScore();
+		assertEquals("Win For Player A", score);
+	}
 
 	@Test
 	public void bothPlayerDrawWithFortyShouldReturnDuce() throws Exception {
 		tennisGame.playerScore(40, 40);
 		String score = tennisGame.getScore();
 		assertEquals("Deuce", score);
+	}
+
+	@Test
+	public void playerBWinFirstFourBallShouldReturnWinForPlayerB() throws Exception {
+		tennisGame.playerScore(0, 50);
+		String score = tennisGame.getScore();
+		assertEquals("Win For Player B", score);
 	}
 }
