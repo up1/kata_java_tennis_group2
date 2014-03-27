@@ -8,7 +8,8 @@ public class TennisGame {
     int playerAScore = 0;
     int playerBScore = 0;
 
-    Map<Integer, String> scoreMapping = new HashMap() {
+    @SuppressWarnings("serial")
+	Map<Integer, String> scoreMapping = new HashMap<Integer, String>() {
         {
             put(0, "Love");
             put(15, "Fifteen");
@@ -30,6 +31,9 @@ public class TennisGame {
         if (this.playerAScore == 50) {
             return String.format("%s For Player A", scoreMapping.get(playerAScore));
         } else if (this.playerAScore == this.playerBScore) {
+        		if( this.playerAScore == 40 ) {
+        			return "Deuce";
+        		}
             return scoreMapping.get(playerAScore) + " all";
         } else {
             return scoreMapping.get(playerAScore) + " " + scoreMapping.get(playerBScore);
