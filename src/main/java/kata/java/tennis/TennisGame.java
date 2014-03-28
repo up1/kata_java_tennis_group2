@@ -34,7 +34,9 @@ public class TennisGame {
     public String getScore() {
         String scoreString = "";
 
-        if (isGameOver()) {
+        if(playerAScore == 50 && playerBScore == 40 ){
+      	    scoreString = "Advantage Player A";
+    	} else if (isGameOver()) {
             scoreString = "Win For " + getTheWinner();
         } else if (playerAScore == playerBScore && playerAScore == 40) {
             scoreString = "Deuce";
