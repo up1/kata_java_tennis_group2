@@ -77,5 +77,12 @@ public class KataTennisTest {
         String score = tennisGame.getScore();
         assertEquals("Advantage Player A",score);
 	}
+	
+	@Test
+	public void playerBWinOneBallAfterDeuceShouldReturnAdvantagePlayerB() throws Exception {
+        	tennisGame.playerScore(40,50);
+                String score = tennisGame.getScore();
+                assertEquals("Advantage Player B",score);
+  	}
 
 }
