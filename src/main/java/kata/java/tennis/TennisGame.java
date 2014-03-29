@@ -34,11 +34,13 @@ public class TennisGame {
     public String getScore() {
         String scoreString = "";
 
-        if (isGameOver()) {
-            scoreString = "Win For " + getTheWinner();
-        } else if (playerAScore == playerBScore && playerAScore == 40) {
+    	  if (isGameOver()) {
+            scoreString = "Win For " + getPlayerHigthScore();
+        } else if (isDeuce()) {
             scoreString = "Deuce";
-        } else {
+        } else if(isAdvantage()){
+      	    scoreString = "Advantage " + getPlayerHigthScore();
+        }else {
             scoreString = getTextScore(playerAScore) + " ";
             scoreString += (playerAScore == playerBScore) ? "all" : getTextScore(playerBScore);
         }
@@ -50,10 +52,17 @@ public class TennisGame {
     }
 
     private boolean isGameOver() {
-        return playerAScore == 50 || playerBScore == 50;
+        return (playerAScore == 50 || playerBScore == 50) && Math.abs(playerAScore - playerBScore) >10;
     }
 
-    private String getTheWinner() {
+    private boolean isDeuce() {
+        return playerAScore == playerBScore && playerAScore == 40;
+    }
+
+    private boolean isAdvantage() {
+        return playerAScore - playerBScore == 10;
+    }
+    private String getPlayerHigthScore() {
         return (playerAScore > playerBScore) ? playerA : playerB;
     }
 }
